@@ -11,7 +11,6 @@ import {
   getRecipes,
   updateRecipe,
 } from "./services/api";
-import { Grid, SimpleGrid } from "@chakra-ui/react";
 
 function App() {
   const [recipeList, setRecipeList] = useState<IRecipe[]>([]);
