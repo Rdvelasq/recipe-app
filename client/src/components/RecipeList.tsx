@@ -14,7 +14,9 @@ import {
   Box,
   Grid,
   Image,
+  Stack,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 interface RecipeListProps {
   recipesList: IRecipe[];
@@ -27,8 +29,19 @@ const RecipeList: FC<RecipeListProps> = ({
   onDeleteRecipe,
   onEditRecipe,
 }) => {
+  const navigate = useNavigate();
+
+  const editRecipeHandler = (recipe: IRecipe) => {
+    onEditRecipe(recipe);
+    navigate("/edit-recipe");
+  };
+
   return (
-    <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
+    <Grid
+      templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
+      mt={10}
+      gap={6}
+    >
       {recipesList.map((recipe) => {
         return (
           <GridItem
@@ -59,16 +72,26 @@ const RecipeList: FC<RecipeListProps> = ({
               )}
 
               <Box mt="2" alignItems="center">
-                <Button size="sm" onClick={() => onEditRecipe(recipe)}>
-                  Edit
-                </Button>
-                <Button
-                  size="sm"
-                  colorScheme="red"
-                  onClick={() => onDeleteRecipe(recipe)}
-                >
-                  Delete
-                </Button>
+                <Stack direction="row" spacing={3}>
+                  <Button
+                    size="sm"
+                    colorScheme="green"
+                    onClick={() => editRecipeHandler(recipe)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    size="sm"
+                    colorScheme="red"
+                    onClick={() => onDeleteRecipe(recipe)}
+                  >
+                    Delete
+                  </Button>
+                  <Button size="sm" colorScheme="blue">
+                    {" "}
+                    View{" "}
+                  </Button>
+                </Stack>
               </Box>
             </Box>
           </GridItem>

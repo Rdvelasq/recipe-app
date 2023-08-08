@@ -14,7 +14,7 @@ import {
 
 function App() {
   const [recipeList, setRecipeList] = useState<IRecipe[]>([]);
-  const [isEditingRecipe, setIsEditingRecipt] = useState<IRecipe | null>(null);
+  const [isEditingRecipe, setIsEditingRecipe] = useState<IRecipe | null>(null);
   const { colorMode, toggleColorMode } = useColorMode();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
   };
 
   const editingRecipeHandler = (recipe: IRecipe) => {
-    setIsEditingRecipt(recipe);
+    setIsEditingRecipe(recipe);
   };
 
   const updateRecipeHandler = async (updatedRecipe: IRecipe) => {
@@ -45,7 +45,7 @@ function App() {
     const reponse = await updateRecipe(updatedRecipe);
     console.log(reponse);
     fetchRecipes();
-    setIsEditingRecipt(null);
+    setIsEditingRecipe(null);
   };
 
   return (
@@ -55,14 +55,11 @@ function App() {
         Toggle {colorMode === "light" ? "Dark" : "Light"}{" "}
       </Button>
 
-      {/* <RecipeForm
-        onAddRecipe={addRecipeHandler}
-        isEditingRecipe={isEditingRecipe}
-        onUpdateRecipe={updateRecipeHandler}
-      /> */}
       <BrowserRouter>
         <Link to="/create-recipe">
-          <Button>Create Recipe</Button>
+          <Button onClick={() => setIsEditingRecipe(null)}>
+            Create Recipe
+          </Button>
         </Link>
         <Routes>
           <Route
@@ -85,6 +82,17 @@ function App() {
               />
             }
           ></Route>
+          <Route
+            path="/edit-recipe"
+            element={
+              <RecipeForm
+                onAddRecipe={addRecipeHandler}
+                isEditingRecipe={isEditingRecipe}
+                onUpdateRecipe={updateRecipeHandler}
+              />
+            }
+          ></Route>
+
           <Route path="/"></Route>
         </Routes>
       </BrowserRouter>

@@ -99,7 +99,7 @@ const RecipeForm: FC<IRecipeFormProps> = ({
       shadow="lg"
     >
       <Heading mb={5} textAlign="center">
-        Create Recipe
+        {isEditingRecipe ? "Edit Recipe" : "Create Recipe"}
       </Heading>
       <FormControl as={VStack} spacing={5}>
         <FormLabel>Title</FormLabel>
