@@ -2,7 +2,8 @@ import axios from "axios";
 import { IRecipe } from "../components/RecipeForm";
 
 const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3000/api/recipes";
+  "https://recipe-keeper-keeper.onrender.com/api/recipes" ||
+  "http://localhost:3000/api/recipes";
 
 // const API_URL = "https://recipe-keeper-keeper.onrender.com/api/recipes"
 
