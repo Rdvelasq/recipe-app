@@ -11,7 +11,7 @@ const PORT = 3000;
 app.use(json());
 app.use(
   cors({
-    origin: "https://recipe-keeper.onrender.com",
+    origin: ["https://recipe-keeper.onrender.com", "http://localhost:5173"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
   })
 );

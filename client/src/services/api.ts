@@ -2,8 +2,11 @@ import axios from "axios";
 import { IRecipe } from "../components/RecipeForm";
 
 const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "https://recipe-keeper-keeper.onrender.com/api/recipes"; // Replace with your API endpoint
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api/recipes";
+
+// const API_URL = "https://recipe-keeper-keeper.onrender.com/api/recipes"
+
+// const API_URL = "http://localhost:3000/api/recipes";
 
 export const createRecipe = async (newRecipe: IRecipe) => {
   const response = await axios.post(API_URL, newRecipe);
