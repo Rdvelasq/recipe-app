@@ -15,6 +15,8 @@ import {
   Grid,
   Image,
   Stack,
+  HStack,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
@@ -36,6 +38,9 @@ const RecipeList: FC<RecipeListProps> = ({
     navigate("/edit-recipe");
   };
 
+  const { colorMode } = useColorMode();
+  const ingredientTextColor = colorMode === "dark" ? "black" : "black";
+
   return (
     <Grid
       templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
@@ -55,15 +60,20 @@ const RecipeList: FC<RecipeListProps> = ({
                 <Heading size="md">{recipe.title}</Heading>
               </Box>
 
-              <Box
-                mt="2"
-                fontWeight="semibold"
-                as="h4"
-                lineHeight="tight"
-                isTruncated
-              >
-                {recipe.ingredients}
-              </Box>
+              <HStack mt={5} mb={5} spacing={3}>
+                {recipe.ingredients.map((ingredient, index) => {
+                  return (
+                    <Box
+                      fontWeight="semibold"
+                      bg="teal.100"
+                      color={ingredientTextColor}
+                      borderRadius={6}
+                    >
+                      {ingredient}
+                    </Box>
+                  );
+                })}
+              </HStack>
 
               {recipe.instructions.length < 50 ? (
                 <Box> {recipe.instructions} </Box>
