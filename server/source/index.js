@@ -12,7 +12,7 @@ app.use(json());
 app.use(
   cors({
     origin: "https://recipe-keeper.onrender.com",
-    methods: ["GET", "POST", "PATHCH", "DELETE"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
   })
 );
 
