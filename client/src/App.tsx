@@ -52,12 +52,12 @@ function App() {
     <>
       <Button onClick={toggleColorMode}>
         {" "}
-        Toggle {colorMode === "light" ? "Dark" : "Light"}{" "}
+        Toggle {colorMode === "light" ? "Dark Mode" : "Light Mode"}{" "}
       </Button>
 
       <BrowserRouter>
         <Link to="/create-recipe">
-          <Button onClick={() => setIsEditingRecipe(null)}>
+          <Button ml={5} onClick={() => setIsEditingRecipe(null)}>
             Create Recipe
           </Button>
         </Link>
