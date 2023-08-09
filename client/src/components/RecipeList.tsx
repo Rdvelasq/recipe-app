@@ -1,19 +1,12 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { IRecipe } from "./RecipeForm";
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Heading,
-  Text,
   Button,
-  SimpleGrid,
   GridItem,
   Box,
   Grid,
-  Image,
   Stack,
   HStack,
   useColorMode,
@@ -64,6 +57,7 @@ const RecipeList: FC<RecipeListProps> = ({
                 {recipe.ingredients.map((ingredient, index) => {
                   return (
                     <Box
+                      key={index}
                       fontWeight="semibold"
                       bg="teal.100"
                       color={ingredientTextColor}
