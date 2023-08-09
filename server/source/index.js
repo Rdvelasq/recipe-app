@@ -9,7 +9,12 @@ const app = express();
 const PORT = 3000;
 
 app.use(json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://recipe-keeper.onrender.com",
+    methods: ["GET", "POST", "PATHCH", "DELETE"],
+  })
+);
 
 app.use("/api/recipes", recipeRoutes);
 
