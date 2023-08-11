@@ -96,11 +96,6 @@ function App() {
           <Route path="/"></Route>
         </Routes>
       </BrowserRouter>
-      {/* <RecipeList
-        recipesList={recipeList}
-        onDeleteRecipe={deleteRecipeHandler}
-        onEditRecipe={editingRecipeHandler}
-      /> */}
     </>
   );
 }
