@@ -39,7 +39,6 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", validateObjectId, async (req, res) => {
   const id = req.params.id;
-  validateObjectId();
   try {
     const recipe = await Recipe.findById(id);
     res.json(recipe);
@@ -50,7 +49,6 @@ router.get("/:id", validateObjectId, async (req, res) => {
 
 router.delete("/:id", validateObjectId, async (req, res) => {
   const id = req.params.id;
-
   try {
     await Recipe.findByIdAndDelete(id);
     res.status(200).json({ message: "Recipe deleted" });

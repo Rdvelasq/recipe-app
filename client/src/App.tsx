@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-import "./App.css";
 import RecipeList from "./components/RecipeList";
 import RecipeForm, { IRecipe } from "./components/RecipeForm";
 import { useColorMode, Button } from "@chakra-ui/react";
