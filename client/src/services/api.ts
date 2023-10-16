@@ -5,10 +5,6 @@ const API_URL =
   "https://recipe-keeper-keeper.onrender.com/api/recipes" ||
   "http://localhost:3000/api/recipes";
 
-// const API_URL = "https://recipe-keeper-keeper.onrender.com/api/recipes"
-
-// const API_URL = "http://localhost:3000/api/recipes";
-
 export const createRecipe = async (newRecipe: IRecipe) => {
   const response = await axios.post(API_URL, newRecipe);
   return response;

@@ -59,8 +59,6 @@ const RecipeForm: FC<IRecipeFormProps> = ({
   const ingredientList = watch("ingredients", []);
 
   const addIngredientHandler = () => {
-    // setIngredientList([...ingredientList, ingredient]);
-    // setIngredient("")
     setValue("ingredients", [...ingredientList, ingredientInput]);
     setValue("ingredient", "");
   };
@@ -107,7 +105,6 @@ const RecipeForm: FC<IRecipeFormProps> = ({
 
     navigate("/");
   };
-  console.log(errors);
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <Box
@@ -128,8 +125,6 @@ const RecipeForm: FC<IRecipeFormProps> = ({
           <Input
             type="text"
             placeholder="Enter title"
-            // value={title}
-            // onChange={(e) => setTitle(e.target.value)}
             focusBorderColor="blue.500"
             {...register("title")}
           />
